@@ -1,0 +1,12 @@
+
+
+/* Login Card */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  min-width: 290px;
+  z-index: 10;
+  background: white;
+  border-radius: 12px;
+}
+

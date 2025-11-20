@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="container ">
+    <!-- landing -->
+    <div class="bg-success row p-5">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 text-light">
+            <h1 class="text-capitalize ">the esiest way to make your favourite meal</h1>
+            <p class="text-justify my-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta doloribus quia
+                praesentium, consectetur reiciendis mollitia corrupti</p>
+            <button class="btn btn-success border" routerLink="/recipes">Explore Our Recipies</button>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+            <img class="w-50 ms-5 landingImg" src="https://www.pngall.com/wp-content/uploads/2/Healthy-Meal.png"
+                alt="food">
+        </div>
+    </div>
+    <!-- popular recipe -->
+    <div class="p-5 my-5">
+        <h1>Popular Recipe Of The Week</h1>
+        <div class="d-flex justify-content-between">
+            <p>Our Most Popular Recipes Of The Week</p>
+            <a routerLink="/recipes">View All</a>
+        </div>
+        <div class="row my-3">
+            <!-- duplicate -->
+            @for (item of allRecipes; track $index ) {
+
+            <div class="col-lg-4">
+                <div class="p-3">
+                    <div style="height: 250px;">
+                        <img width="400" height="250" [src]="item?.image" style="background-size: cover;"
+                            class="card-img-top h-100 w-100" alt="recipie">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{item?.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            }
+
+
+        </div>
+    </div>
+    <!-- recipie banner -->
+    <div class="my-4 "
+        style="background-image: url(https://img.freepik.com/premium-photo/food-banners_583952-13024.jpg);height: 400px; background-position: center;background-repeat: no-repeat;background-size: cover;">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-lg-6"></div>
+
+            <div class="col-lg-6 ">
+                <div class="bg-light rounded w-75 p-5">
+                    <h1>50+ Recipes That Very Quick And Fast</h1>
+                    <p>Find the perfect food ideas to start your day with the quick and easiest way.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- download app -->
+    <div class="my-4">
+        <div class="bg-success p-5" style="height: 400px;">
+            <div class="row h-100">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center ">
+                    <img width="350px"
+                        src="https://toppng.com/uploads/thumbnail/android-app-on-google-play-11568829115kt4gig8l67.png"
+                        alt="phone image">
+                </div>
+                <div class="col-lg-6 text-light  d-flex align-items-center justify-content-center flex-column">
+                    <h1>Download Apps</h1>
+                    <p class="text-center">Download the app from google play store or <br> google play for better
+                        experience</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div>
+                            <img width="150px"
+                                src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png"
+                                alt="playstore">
+                        </div>
+                        <div>
+                            <img width="150px"
+                                src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png"
+                                alt="playstore">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimony -->
+
+    <div class="my-5 text-center scroll-wrapper">
+        <h1>Client Testimonial</h1>
+        <!-- duplicate -->
+        <div class="scroll-text my-5 d-flex text-wrap">
+            <div class="border rounded p-3 shadow me-2 ">
+                <span class="fw-bold">client name</span>
+                <p>message</p>
+            </div>
+            <div class="border rounded p-3 shadow me-2">
+                <span class="fw-bold">client name</span>
+                <p>message</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <h4>Filter</h4>
+            <button (click)="getAllRecipies()" class="btn mt-5">All</button>
+            <!-- cuisine dropdown menue -->
+            <br>
+            <button class="btn dropdown-toggle " type="button " data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                cuisine Type
+            </button>
+            <div class="collapse my-2" id="collapseExample">
+                @for (item of cuisineArray; track $index) {
+                      <button (click)="fillterRecipe('cuisine',item)" class="btn"> {{item}} </button>
+                }
+              
+            </div>
+            <br>
+            <!-- meal type drop down menu -->
+               <button class="btn dropdown-toggle " type="button " data-bs-toggle="collapse"
+                data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                meal Type 
+            </button>
+            <div class="collapse my-2" id="collapseExample1">
+                @for (item of mealTypeArray; track $index) {
+                     <button (click)="fillterRecipe('mealType',item)" class="btn"> {{item}} </button>
+                }
+               
+            </div>
+
+        </div>
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>All Recipies</h1>
+                <input type="text" placeholder="Search By Recipie Name" class="form-control w-50">
+            </div>
+            <div class="row">
+                @for (recipes of allRecipes; track $index) {
+                      <div class="col-lg-4">
+                     <div class="p-3" (click)="navigateView(recipes?._id)" >
+                    <div style="height: 200px;"><img
+                            [src]="recipes?.image"
+                            style="background-size: cover;" class="card-img-top h-100" alt="recipie"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipes.name}} </h5>
+                        <p>Cusine : <span> {{recipes?.cuisine}} </span></p>
+                    </div>
+                </div>
+                </div>
+                }
+              
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
