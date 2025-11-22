@@ -14,16 +14,26 @@
   <p class="text-center fs-5 mb-4">More than 100 plus Recipes from around the world</p>
 
   <!-- LOGIN CARD -->
-  <form class="shadow-lg p-5 rounded  my-3" style="width: 400px;background-color: rgba(0, 0, 0, 0.3);">
+  <form [formGroup]="loginform"  (ngSubmit)="login()"  class="shadow-lg p-5 rounded  my-3" style="width: 400px;background-color: rgba(0, 0, 0, 0.3);">
 
       <h3 class="text-center fw-bold mb-4">
         <i class="fas fa-graduation-cap me-2"></i> Cookpedia
       </h3>
 
-      <input type="email" class="form-control mb-3" placeholder="E Mail">
-      <input type="password" class="form-control mb-3" placeholder="Password">
+       <input  formControlName="email" name="email" type="email" class="form-control mb-3" placeholder="E Mail">
+         @if (this.loginform.get('email')?.errors && loginform.get('email')?.touched) {
+           <div class="mb-2 text-danger ">
+         <p>*Invalid email</p>
+        </div>
+        }
+        <input  formControlName="password" name="password" type="text" class="form-control mb-3" placeholder="Password">
+         @if (this.loginform.get('password')?.errors && loginform.get('password')?.touched) {
+           <div class="mb-2 text-danger ">
+         <p>*Invalid password</p>
+        </div>
+        }
 
-      <button class="btn btn-success w-100">Login</button>
+      <button type="submit" class="btn btn-success w-100">Login</button>
 
   </form>
 </div>
