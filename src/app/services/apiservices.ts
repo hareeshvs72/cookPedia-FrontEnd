@@ -20,6 +20,6 @@ export class Apiservices {
   // login user
 
   loginApi(reqBody:any){
-    return this.http.post(`${this.serverURl}/register`,reqBody)
+    return this.http.post(`${this.serverURl}/login`,reqBody)
   }
 }

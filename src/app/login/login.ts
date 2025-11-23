@@ -29,11 +29,13 @@ export class Login {
         const password = this.loginform.value.password
         this.api.loginApi({email,password}).subscribe({
           next:(res:any)=>{
+          
             sessionStorage.setItem("token",res.token)
-            sessionStorage.setItem("user",res.user)
+            sessionStorage.setItem("user",JSON.stringify(res.user))
             alert('login successFully!!!')
             res.user.role=="user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin/home')
             this.loginform.reset()
+            
           },
           error:(response:any)=>{
             alert(response.error)
