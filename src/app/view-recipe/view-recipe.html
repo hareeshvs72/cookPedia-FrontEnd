@@ -1,5 +1,109 @@
 <app-header></app-header>
-<div class="container my-5">
 
+<div class="container py-4">
+
+    <!-- Back link -->
+    <p routerLink="/recipes" class="text-primary  fw-semibold mb-3 d-inline-block">
+        ← Back To Recipe List
+    </p>
+
+    <!-- Title -->
+    <h2 class="fw-bold mb-4"> {{recipe?.name}}</h2>
+
+    <!-- Meta Info -->
+
+
+    <!-- Main Content -->
+    <div class="row">
+
+        <!-- Left Image -->
+        <div class="col-md-5 mb-4">
+            <img [src]="recipe?.image" class="img-fluid rounded shadow" alt="Vegetarian Stir Fry">
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between gap-3 mt-3">
+                <button class="btn btn-success px-4">Download Recipe</button>
+                <button class="btn btn-primary px-4">Save Recipe</button>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-md-7">
+
+            <!-- Preparation / Cooking Time -->
+            <div class="row g-3 mb-4">
+                <div class="row fw-bold mb-4">
+                    <div class="col-md-4"><strong>Cuisine:</strong>{{recipe?.cuisine}} </div>
+                    <div class="col-md-4"><strong>Servings:</strong> {{recipe?.servings}} </div>
+                    <div class="col-md-4"><strong>Cooking Mode:</strong>difficulty</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="border p-3 rounded text-center">
+                        <img width="50px" height="50px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOiBTE4qhKk8tnRHiZUVGURy81dUpRl2s3Kw&s"
+                            alt="prapration timer">
+                        <div class="fw-bold">Preparation Time</div>
+                        <div class="text-danger fw-bold fs-5"> {{recipe?.prepTimeMinutes}} Minutes</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=" p-3 rounded text-center">
+                        <div class="fw-bold">Cooking Time</div>
+                        <div class="text-danger fw-bold fs-5"> {{recipe?.cookTimeMinutes}} Minutes</div>
+                    </div>
+                </div>
+                <!-- Calories -->
+                  <div class="col-md-4">
+                    <div class="border p-3 rounded text-center">
+                         <img width="50px" height="50px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj89kk8J8bKpYepLVQgrk9HlzNDA44kf5Oew&s"
+                            alt="prapration timer">
+                        <div class="fw-bold">Calories Per Serving</div>
+                    <div class="text-success fw-bold fs-3">{{recipe?.caloriesPerServing}} kcal</div>
+                    </div>
+                </div>
+              
+            </div>
+
+
+
+            <!-- Ingredients -->
+            <h4 class="fw-bold mt-4">Ingredients Needed</h4>
+          
+            <ul class="mt-2">
+                 @for (item of recipe?.ingredients; track $index) {
+                       <li>{{item}}</li>
+                 }
+           
+            </ul>
+
+            <!-- Cooking Instructions -->
+            <h4 class="fw-bold mt-4">Cooking Instructions</h4>
+            <ol class="mt-2">
+               @for (item of recipe?.instructions; track $index) {
+                       <li>{{item}}</li>
+                 }
+            </ol>
+
+        </div>
+    </div>
+
+    <!-- Related Recipes -->
+    <h3 class="fw-bold mt-5">Related Recipes</h3>
+    <div class="row mt-3">
+         @for (item of relatedRecipes; track $index) {
+             <div class="col-md-3 my-2 col-6">
+            <div class="card shadow-sm">
+                <img [src]="item?.image" class="card-img-top" alt="Beef and Broccoli">
+                <div class="card-body p-2">
+                    <p class="fw-semibold mb-0">{{item?.name}}</p>
+                </div>
+            </div>
+        </div>
+         }
+       
+
+    </div>
 </div>
+
 <app-footer></app-footer>

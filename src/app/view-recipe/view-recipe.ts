@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { Apiservices } from '../services/apiservices';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-view-recipe',
-  imports: [Header,Footer],
+  imports: [Header, Footer, RouterLink],
   templateUrl: './view-recipe.html',
   styleUrl: './view-recipe.css',
 })
