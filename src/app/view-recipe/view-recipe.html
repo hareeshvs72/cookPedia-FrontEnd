@@ -3,12 +3,12 @@
 <div class="container py-4">
 
     <!-- Back link -->
-    <p routerLink="/recipes" class="text-primary  fw-semibold mb-3 d-inline-block">
+    <a routerLink="/recipes" class="text-primary  fw-semibold mb-3 d-inline-block">
         ← Back To Recipe List
-    </p>
+    </a>
 
     <!-- Title -->
-    <h2 class="fw-bold mb-4"> {{recipe?.name}}</h2>
+   
 
     <!-- Meta Info -->
 
@@ -17,12 +17,12 @@
     <div class="row">
 
         <!-- Left Image -->
-        <div class="col-md-5 mb-4">
+        <div class="col-md-5 mb-4 my-3">
             <img [src]="recipe?.image" class="img-fluid rounded shadow" alt="Vegetarian Stir Fry">
 
             <!-- Buttons -->
             <div class="d-flex justify-content-between gap-3 mt-3">
-                <button class="btn btn-success px-4">Download Recipe</button>
+                <button type="button" class="btn btn-success px-4">Download Recipe</button>
                 <button class="btn btn-primary px-4">Save Recipe</button>
             </div>
         </div>
@@ -32,10 +32,11 @@
 
             <!-- Preparation / Cooking Time -->
             <div class="row g-3 mb-4">
+                 <h2 class="fw-bold mb-4"> {{recipe?.name}}</h2>
                 <div class="row fw-bold mb-4">
-                    <div class="col-md-4"><strong>Cuisine:</strong>{{recipe?.cuisine}} </div>
-                    <div class="col-md-4"><strong>Servings:</strong> {{recipe?.servings}} </div>
-                    <div class="col-md-4"><strong>Cooking Mode:</strong>difficulty</div>
+                    <div class="col-md-4 "><strong class="mx-2">Cuisine:</strong>{{recipe?.cuisine}} </div>
+                    <div class="col-md-4"><strong class="mx-2">Servings:</strong> {{recipe?.servings}} </div>
+                    <div class="col-md-4"><strong class="mx-2">Cooking Mode:</strong> difficulty</div>
                 </div>
                 <div class="col-md-4">
                     <div class="border p-3 rounded text-center">
@@ -93,7 +94,7 @@
     <div class="row mt-3">
          @for (item of relatedRecipes; track $index) {
              <div class="col-md-3 my-2 col-6">
-            <div class="card shadow-sm">
+            <div routerLink="/recipe/{{item._id}}/view" class="card shadow-sm">
                 <img [src]="item?.image" class="card-img-top" alt="Beef and Broccoli">
                 <div class="card-body p-2">
                     <p class="fw-semibold mb-0">{{item?.name}}</p>

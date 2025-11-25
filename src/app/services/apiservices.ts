@@ -43,4 +43,9 @@ export class Apiservices {
    relatedRecipesAPI(cuisine:string){
     return this.http.get(`${this.serverURl}/related-recipes?cuisine=${cuisine}`,this.appendToken())
   }
+  // add to download 
+  addToDownloadrecipeAPI(recipe:any){
+    ///recipes/:id/download
+    return this.http.put(`${this.serverURl}/recipes/${recipe._id}/download`,recipe,this.appendToken())
+  }
 }
