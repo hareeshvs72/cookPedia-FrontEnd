@@ -48,4 +48,21 @@ export class Apiservices {
     ///recipes/:id/download
     return this.http.put(`${this.serverURl}/recipes/${recipe._id}/download`,recipe,this.appendToken())
   }
+  // save recipie
+  saveRecipeApi(recipe:any){
+       return this.http.post(`${this.serverURl}/recipes/${recipe._id}/save`,recipe,this.appendToken())
+
+  }
+  // get save recipes
+
+ getAllSaveRecipeAPi(){
+         return this.http.get(`${this.serverURl}/recipes/save`,this.appendToken())
+
+ }
+//  delete recipe
+
+ deleteRecipeApi(recipeId:any){
+         return this.http.delete(`${this.serverURl}/recipes/${recipeId}/remove`,this.appendToken())
+
+ }
 }

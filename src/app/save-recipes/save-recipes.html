@@ -13,13 +13,24 @@
   <div class="row g-4 justify-content-start">
 
     <!-- 1 Recipe Card -->
-    <div class="col-md-3 col-sm-6">
+     @if(allRecipes.length>0){
+  @for (item of allRecipes; track $index) {
+        <div class="col-md-3 col-sm-6">
       <div class="text-center">
-        <img src="https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg?cs=srgb&dl=pexels-daniela-elena-tentis-118658-691114.jpg&fm=jpg" class="img-fluid rounded recipe-img">
-        <p class="fw-semibold mt-2">Chicken Alfredo Pasta</p>
-        <i class="bi bi-trash-fill text-danger fs-5"></i>
+        <img [src]="item?.recipeImage" class="img-fluid rounded recipe-img">
+     <div  class="d-flex align-items-center justify-content-between">
+          <p class="fw-semibold mt-2">{{item?.recipeName}}</p>
+         <button type="button" (click)="removeSaveRecipe(item?._id)" class="border-0"> <i class="fa-solid fa-trash text-danger "></i></button>
+     </div>
       </div>
     </div>
+     }
+     }
+     @else {
+      <p class="fw-bold"> Save Recipe IS Empty</p>
+     }
+    
+  
 
 
   </div>

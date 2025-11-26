@@ -1,1 +1,79 @@
-<p>profile works!</p>
+<app-header></app-header>
+<div class="container">
+    <div style="height: 200px;" class="row bg-success"></div>
+    <div>
+        <img class="border p-3" width="200px" height="200px"
+            src="https://tse2.mm.bing.net/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?pid=Api&P=0&h=180"
+            style="border-radius: 50%;margin-top: -100px;" alt="profile">
+    </div>
+    <h3 class="my-5">Welcome User
+          <button class="border-0 bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+      <i class="fa-solid fa-edit text-primary"></i>
+    </button>
+    
+    </h3>
+    <p style="text-align: justify;">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit fugiat sed pariatur suscipit hic debitis
+        rerum? Ea aperiam doloribus, mollitia earum nesciunt, cumque velit quisquam, incidunt placeat at adipisci
+        blanditiis.lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, molestiae! Voluptatibus
+        perferendis quaerat deleniti enim suscipit saepe, nam molestias! Incidunt mollitia accusamus quas est aliquam,
+        laboriosam dolorum. Unde, qui quia? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi, quasi
+        eligendi? Aspernatur eligendi deserunt architecto illo officiis? Ipsum harum fugit, maxime doloremque, deserunt
+        excepturi vitae reiciendis quidem magni similique ad.
+    </p>
+    <h2 class="my-5">Download Recipe List</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="p-3">
+                <div style="height: 250px;">
+                    <img height="250"
+                        src="https://tse2.mm.bing.net/th/id/OIP._xTnOPwHg030C-8eM0QEBAHaFj?pid=Api&P=0&h=180"
+                        style="background-size: cover;" class="card-img-top h-100 w-100" alt="recipie">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">name</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+
+
+    <!-- off canvase -->
+
+   
+  
+
+   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fs-3" id="offcanvasExampleLabel">Profile Updation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p style="text-align: justify;"></p>
+        <form class="border rounded p-3">
+            <div class="text-center mb-3">
+                <input type="file" id="profile" hidden >
+                <label for="profile">
+                     <img width="50px" height="50px" style="border-radius: 50%;" class="card-img-top img-fluid"
+                    src="https://pics.craiyon.com/2023-07-08/201236e24c1d4bac99fea96a27037b85.webp" alt="">
+                    <span style="margin-top: 20px; margin-left: -50px;" class="btn text-light"><i class="fa-solid fa-person-through-window"></i></span>
+                </label>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">User Name </label>
+                <input name="username" [(ngModel)]="username" type="text" class="form-control" id="name" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label">Password</label>
+                <input  name="Password" [(ngModel)]="password" type="text" class="form-control" id="Password" placeholder="New Password">
+            </div>
+            <div class="mb-3">
+                <label for="Confirm" class="form-label">Confirm Password</label>
+                <input  name="confirm" [(ngModel)]="confirmassword" type="text" class="form-control" id="Confirm" placeholder="Confirm Password">
+            </div>
+            <button class="btn btn-warning w-100">Update </button>
+        </form>
+    </div>
+</div>

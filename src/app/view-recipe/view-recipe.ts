@@ -78,4 +78,15 @@ autoTable(pdf,{
 })
 pdf.save('recipe.pdf')
   }
+
+  saveRecipe(){
+    this.api.saveRecipeApi(this.recipe).subscribe({
+      next:(res:any)=>{
+        alert(`${res.recipeName} added to your  Collection`)
+      },
+      error:(reason:any)=>{
+        alert(reason.error)
+      }
+    })
+  }
 }
