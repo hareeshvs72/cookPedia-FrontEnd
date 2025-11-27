@@ -3,10 +3,10 @@
     <div style="height: 200px;" class="row bg-success"></div>
     <div>
         <img class="border p-3" width="200px" height="200px"
-            src="https://tse2.mm.bing.net/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?pid=Api&P=0&h=180"
+            [src]="profile()"
             style="border-radius: 50%;margin-top: -100px;" alt="profile">
     </div>
-    <h3 class="my-5">Welcome User
+    <h3 class="my-5">Welcome {{username.split(" ")[0]}}
           <button class="border-0 bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample">
       <i class="fa-solid fa-edit text-primary"></i>
@@ -24,18 +24,21 @@
     </p>
     <h2 class="my-5">Download Recipe List</h2>
     <div class="row">
-        <div class="col-md-3">
+        @for (item of downloadList; track $index) {
+             <div class="col-md-3">
             <div class="p-3">
                 <div style="height: 250px;">
                     <img height="250"
-                        src="https://tse2.mm.bing.net/th/id/OIP._xTnOPwHg030C-8eM0QEBAHaFj?pid=Api&P=0&h=180"
+                        [src]="item?.recipeImage"
                         style="background-size: cover;" class="card-img-top h-100 w-100" alt="recipie">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">name</h5>
+                    <h5 class="card-title">{{item.recipeName}}</h5>
                 </div>
             </div>
         </div>
+        }
+       
     </div>
     <app-footer></app-footer>
 
@@ -54,11 +57,11 @@
         <p style="text-align: justify;"></p>
         <form class="border rounded p-3">
             <div class="text-center mb-3">
-                <input type="file" id="profile" hidden >
-                <label for="profile">
-                     <img width="50px" height="50px" style="border-radius: 50%;" class="card-img-top img-fluid"
-                    src="https://pics.craiyon.com/2023-07-08/201236e24c1d4bac99fea96a27037b85.webp" alt="">
-                    <span style="margin-top: 20px; margin-left: -50px;" class="btn text-light"><i class="fa-solid fa-person-through-window"></i></span>
+                <input (change)="getFile($event)" type="file" id="profile" hidden >
+                <label  for="profile">
+                     <img width="100px" height="100px" style="border-radius: 50%;" class=""
+                    [src]="profile()" alt="profile">
+                    <span style="margin-top: 100px; margin-left: -50px;" class="btn text-light"><i class="fa-solid fa-person-through-window text-primary"></i></span>
                 </label>
             </div>
             <div class="mb-3">
@@ -73,7 +76,7 @@
                 <label for="Confirm" class="form-label">Confirm Password</label>
                 <input  name="confirm" [(ngModel)]="confirmassword" type="text" class="form-control" id="Confirm" placeholder="Confirm Password">
             </div>
-            <button class="btn btn-warning w-100">Update </button>
+            <button type="button" (click)="editProfile()" class="btn btn-warning w-100">Update </button>
         </form>
     </div>
 </div>

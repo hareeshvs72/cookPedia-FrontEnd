@@ -65,4 +65,16 @@ export class Apiservices {
          return this.http.delete(`${this.serverURl}/recipes/${recipeId}/remove`,this.appendToken())
 
  }
+//  get user recipie download list api
+ getUserDownloadrecipi(){
+         return this.http.get(`${this.serverURl}/recipe/download`,this.appendToken())
+
+ }
+
+//  update user api
+// 
+ updateUserApi(user:any){
+         return this.http.put(`${this.serverURl}/user/${user.id}/edit`,user,this.appendToken())
+ }
+
 }
