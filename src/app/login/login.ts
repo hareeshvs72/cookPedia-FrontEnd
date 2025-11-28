@@ -33,7 +33,7 @@ export class Login {
             sessionStorage.setItem("token",res.token)
             sessionStorage.setItem("user",JSON.stringify(res.user))
             alert('login successFully!!!')
-            res.user.role=="user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin/home')
+            res.user.role=="user" ? this.router.navigateByUrl('/') : this.router.navigateByUrl('/admin')
             this.loginform.reset()
             
           },

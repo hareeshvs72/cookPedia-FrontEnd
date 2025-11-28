@@ -96,16 +96,17 @@
     <div class="my-5 text-center scroll-wrapper">
         <h1>Client Testimonial</h1>
         <!-- duplicate -->
-        <div class="scroll-text my-5 d-flex text-wrap">
+         
+              <div class="scroll-text my-5 d-flex text-wrap">
+                @for (item of feedback; track $index) {
             <div class="border rounded p-3 shadow me-2 ">
-                <span class="fw-bold">client name</span>
-                <p>message</p>
+                <span class="fw-bold">{{item?.name}}</span>
+                <p>{{item?.message}}</p>
             </div>
-            <div class="border rounded p-3 shadow me-2">
-                <span class="fw-bold">client name</span>
-                <p>message</p>
-            </div>
+             }
         </div>
+        
+      
     </div>
 </div>
 <app-footer></app-footer>

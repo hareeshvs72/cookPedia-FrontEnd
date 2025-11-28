@@ -14,13 +14,16 @@ import { NgOptimizedImage } from "@angular/common";
 export class Home {
   // property
   allRecipes:any = []
+  feedback:any = []
   api = inject(Apiservices)
+
 
   // constructor
 
   // life cycle
   ngOnInit(){
      this.getallRecipes()
+     this.getAllFeedback()
   }
  
   // userdefinde function
@@ -29,6 +32,14 @@ export class Home {
       this.allRecipes = res.slice(0,6)
       console.log(this.allRecipes);
       
+    })
+  }
+
+  getAllFeedback(){
+    this.api.getAllFeedbackApi().subscribe((res:any)=>{
+        this.feedback = res
+        console.log(this.feedback);
+        
     })
   }
 }

@@ -22,7 +22,19 @@ export class Apiservices {
   loginApi(reqBody:any){
     return this.http.post(`${this.serverURl}/login`,reqBody)
   }
+  // add feed back
 
+ addFeeedbacksAPi(feedback:any){
+    return this.http.post(`${this.serverURl}/user/feedback`,feedback)
+  }
+
+  // get all feedbacks 
+ 
+  
+  getAllFeedbackApi(){
+    return this.http.get(`${this.serverURl}/get/feedback`)
+  }
+   
   // append token
 
   appendToken(){

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div style="min-height: 100vh;" class="col-lg-2 bg-success">
+            <app-admin-sidebar />
+        </div>
+        <div class="col-lg-10 p-3">
+            <h1 class="my-5 text-center">All Recipies</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <button routerLink="/admin/recipe/add" class="btn btn-primary">+ Add Recipies</button>
+                <input type="text" class="form-control w-25" placeholder="search By Recipe Name">
+            </div>
+            <table class="table my-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Cuisine</th>
+                        <th scope="col">...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Name</td>
+                        <td><img src="https://tse4.mm.bing.net/th/id/OIP.sb1y9kuqfvtqq3yU4dFh_AHaGu?pid=Api&P=0&h=180"
+                                width="50px" height="50px" alt=""></td>
+                        <td>@cuisine</td>
+                        <td>
+                            <a routerLink="/admin/recipe/:id/edit" class="btn"><i
+                                    class="fa-solid fa-edit text-primary"></i></a>
+                            <button class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

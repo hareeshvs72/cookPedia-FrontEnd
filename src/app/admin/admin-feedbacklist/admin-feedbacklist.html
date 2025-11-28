@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div style="min-height: 100vh;" class="col-lg-2 bg-success">
+            <app-admin-sidebar/>
+        </div>
+        <div class="col-lg-10">
+           <h1 class="my-5">All FeedBAcks</h1>
+           <div class="col">
+            <table class="table my-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">username</th>
+                        <th scope="col">email</th>
+                        <th scope="col">Feedback</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>UserName</td>
+                     
+                        <td>@email</td>
+                        <td>@feedback</td>
+                        <td>
+                            <a routerLink="/admin/recipe/:id/edit" class="btn btn-success "><i
+                                    class="fa-solid fa-check "></i>Aprove</a>
+                            <button class="btn  btn-danger mx-2"><i class="fa-solid fa-x"></i>Reject</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+           </div>
+
+        </div>
+    </div>
+</div>
