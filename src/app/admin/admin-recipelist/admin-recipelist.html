@@ -7,7 +7,7 @@
             <h1 class="my-5 text-center">All Recipies</h1>
             <div class="d-flex justify-content-between align-items-center">
                 <button routerLink="/admin/recipe/add" class="btn btn-primary">+ Add Recipies</button>
-                <input type="text" class="form-control w-25" placeholder="search By Recipe Name">
+                <input  [(ngModel)]="searchKey"  type="text" class="form-control w-25" placeholder="search By Recipe Name">
             </div>
             <table class="table my-5">
                 <thead>
@@ -20,18 +20,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Name</td>
-                        <td><img src="https://tse4.mm.bing.net/th/id/OIP.sb1y9kuqfvtqq3yU4dFh_AHaGu?pid=Api&P=0&h=180"
+                    @for (item of allRecipies | search:searchKey; track $index; let i=$index) {
+                          <tr>
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item?.name}}</td>
+                        <td><img [src]="item?.image"
                                 width="50px" height="50px" alt=""></td>
-                        <td>@cuisine</td>
+                        <td>{{item?.cuisine}}</td>
                         <td>
-                            <a routerLink="/admin/recipe/:id/edit" class="btn"><i
+                            <a routerLink="/admin/recipe/{{item?._id}}/edit" class="btn"><i
                                     class="fa-solid fa-edit text-primary"></i></a>
                             <button class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
                         </td>
                     </tr>
+                    }
+                   
 
                 </tbody>
             </table>

@@ -1,13 +1,103 @@
 <div class="container-fluid">
     <div class="row">
         <div style="min-height: 100vh;" class="col-lg-2 bg-success">
-            <app-admin-sidebar/>
+            <app-admin-sidebar />
         </div>
-        <div class="col-lg-10">
-          <div class="p-3 bg-success row d-flex justify-content-between align-items-center">
-                 <h3 class="text-light"><button class="btn fs-2 text-light me-2"><i class="fa-solid fa-bars"></i>
-                welocme Admin</button></h3>
-          </div>
+        <div class="col-lg-10 ">
+
+            <div class="">
+                <div class="p-3 bg-success d-flex justify-content-between align-items-center">
+
+                    <!-- Left -->
+                    <div class="d-flex align-items-center">
+                        <button class="btn fs-2 text-light me-2">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <h3 class="text-light m-0">Welcome Admin</h3>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="dropdown">
+                        <button class="btn text-light dropdown-toggle d-flex align-items-center" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <i class="fa-solid fa-user text-light"></i>
+
+
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button type="button" class="dropdown-item">
+                                    LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- row category -->
+            <div class="row align-items-center my-5">
+                <!-- box -->
+                <div class="col-lg-3">
+                    <div style="background-color: blue;"
+                        class="d-flex p-2 rounded justify-content-center align-items-center">
+                        <i class="fa-solid fa-user fs-1"></i>
+                        <div class="mx-5">
+                            <h4>User</h4>
+                            <h3>100</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgba(0, 255, 255, 0.637);"
+                        class="d-flex p-2 rounded justify-content-center align-items-center">
+                        <i class="fa-solid fa-bowl-food fs-1"></i>
+                        <div class="mx-5">
+                            <h4>Recipe</h4>
+                            <h3>30</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgb(255, 94, 0);"
+                        class="d-flex p-2 rounded justify-content-center align-items-center">
+                        <i class="fa-solid fa-download fs-1"></i>
+                        <div class="mx-5">
+                            <h4>Downloads</h4>
+                            <h3>10</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div style="background-color: rgb(120, 124, 124);"
+                        class="d-flex px-2 rounded justify-content-center align-items-center">
+                        <i class="fa-solid fa-message fs-1"></i>
+                        <div class="mx-2">
+                            <h4>Notificationt</h4>
+                            <h5>you have <a routerLink="/admin/feedback-list ">10</a>new requests</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- charts -->
+
+            <div class="row my-5">
+                <div class="col-lg-8">
+                    <!-- <highcharts-chart [options]="chartOptions" class="chart" /> -->
+                </div>
+                <div class="col-lg-4">
+                    <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                    </mat-card>
+                </div>
+            </div>
+
         </div>
+
+
     </div>
+
 </div>

@@ -89,4 +89,25 @@ export class Apiservices {
          return this.http.put(`${this.serverURl}/user/${user.id}/edit`,user,this.appendToken())
  }
 
+//  get all user 
+
+ getAllUserApi(){
+         return this.http.get(`${this.serverURl}/users`,this.appendToken())
+
+ }
+//  all download
+ getAdminAllDownloadApi(){
+          return this.http.get(`${this.serverURl}/download`,this.appendToken())
+
+ }
+//  all feedback
+  getAdminAllFeedbacksApi(){
+          return this.http.get(`${this.serverURl}/feedback`,this.appendToken())
+
+ }
+//  update feedback status 
+  updateFeedBackStatusApi(id:string,status:string){
+          return this.http.get(`${this.serverURl}/feedback/${id}/edit?status=${status}`,this.appendToken())
+
+ }
 }
