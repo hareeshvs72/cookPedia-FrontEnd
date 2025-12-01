@@ -14,7 +14,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
-import { provideHighcharts } from 'highcharts-angular';
+import { HighchartsChartComponent, provideHighcharts } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,8 @@ import { provideHighcharts } from 'highcharts-angular';
     MatDatepickerModule,
     SearchPipe,
     FormsModule,
+    HighchartsChartComponent
+        
     
   ],
   
@@ -42,3 +44,4 @@ import { provideHighcharts } from 'highcharts-angular';
   ]
 })
 export class AdminModule { }
+

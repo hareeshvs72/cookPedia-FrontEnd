@@ -8,9 +8,12 @@ import * as Highcharts from 'highcharts';
 })
 export class AdminDashboard {
 selected = new Date()
+  Highcharts = Highcharts;
 chartOptions: Highcharts.Options = {}; // Required
 constructor(){
   
 }
 
 }
+
+
