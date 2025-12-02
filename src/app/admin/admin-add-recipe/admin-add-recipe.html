@@ -4,8 +4,15 @@
             <app-admin-sidebar/>
         </div>
         <div class="col-lg-10">
-           <h1 class="text-center my-3">Add Recipe Details</h1>
-           <pre>{{ingridentsArray | json }}</pre>
+           <h1 class="text-center my-3"> 
+             @if(recipeId){
+             Update
+             }
+             @else{
+                Add
+             }
+           Recipe Details</h1>
+           <!-- <pre>{{selectMealTypeArray | json }}</pre> -->
            <div class="container my-5 border rounded shadow p-5 text-center w-75">
             <div class="row">
                 <div class="col-md-6">
@@ -20,7 +27,7 @@
                     </div>
                     <div class="mb-2">
                         <!-- <label for="cuisine"  class="fw-bolder">Add Cuisine Type</label> -->
-                        <input type="text" id="cuisine" class="form-control" placeholder="cuisine Type ( Italian , Indian)">
+                        <input [(ngModel)]="recipeDetails.cuisine" type="text" id="cuisine" class="form-control" placeholder="cuisine Type ( Italian , Indian)">
                         <!-- <select name="cuisine" id="cuisine" class="form-control">
                             <option value="Cuisine Name">Cuisine Name</option>
                         </select> -->
@@ -48,7 +55,7 @@
                      <div class="mb-2">
                         <input type="text" [(ngModel)]="recipeDetails.caloriesPerServing" placeholder="Recipe Calorie Per Serving (ex:350)" class="form-control">
                     </div>
-                       <div class="mb-3">
+                       <div class="mb-2">
                         <!-- <label for="mode" class="fw-bolder">Chose Mode of Cooking </label> -->
                         <select [(ngModel)]="recipeDetails.difficulty" name="mode" id="mode" class="form-control">
                             <option value="" hidden disabled selected >Chose Mode of Cooking </option>
@@ -75,14 +82,27 @@
             <div class="mb-3">
                     <div class="rounded border p-3">
                         <h6 class="text-secondary">Choose Meal type of the Recipe :
-                            <span class="border rounded p-2 m-1">Meal</span>
+                            @if(recipeId){
+                                  @for (item of selectMealTypeArray; track $index) {
+                                <span class="border rounded p-2 m-1">{{item}}
+                                      <button (click)="removeMealType(item)" class="btn btn-dnager text-danger ">x</button>
+                                </span>
+                              
+                            }           
+                            }
+                            @else {
+                                    @for (item of selectMealTypeArray; track $index) {
+                                <span class="border rounded p-2 m-1">{{item}}</span>
+                            }
+                            }
+                         
                         </h6>
                         <div class="d-flex flex-wrap my-1">
                             <!-- meal type -->
                            @for (item of mealArray; track $index) {
                              <div class="border rounded p-2 m-2">
                                 <label [for]="item">
-                                    <input type="checkbox" [id]="item">
+                                    <input (change)="chooseMeal($event)" [name]="item" type="checkbox" [id]="item">
                                     {{item}}
                                 </label>
                             </div>
@@ -90,7 +110,13 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success">Add Recipe</button>
+                @if(recipeId){
+                   <button (click)="updateRecipe()"  class="btn btn-success">update Recipe</button>
+                }
+                @else {
+                <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+                }
+                
            </div>
         </div>
     </div>

@@ -8,10 +8,15 @@ import * as Highcharts from 'highcharts';
 })
 export class AdminDashboard {
 selected = new Date()
-  Highcharts = Highcharts;
+ isSideBArOpen:boolean = true
+
 chartOptions: Highcharts.Options = {}; // Required
 constructor(){
   
+}
+
+toggleSideBar(){
+this.isSideBArOpen = !this.isSideBArOpen
 }
 
 }

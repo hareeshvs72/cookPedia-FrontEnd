@@ -25,5 +25,13 @@ export class AdminRecipelist {
       
     })
   }
+  removeRecipelIst(id:string){
+    console.log(id);
+    
+    this.api.deleteRecipeApi(id).subscribe((res:any)=>{
+      alert("remove recipe successfully")
+      this.getAllrecipies()
+    })
+  }
 
 }

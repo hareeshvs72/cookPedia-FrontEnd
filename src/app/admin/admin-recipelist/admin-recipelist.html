@@ -30,7 +30,7 @@
                         <td>
                             <a routerLink="/admin/recipe/{{item?._id}}/edit" class="btn"><i
                                     class="fa-solid fa-edit text-primary"></i></a>
-                            <button class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
+                            <button (click)="removeRecipelIst(item?._id)" class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
                         </td>
                     </tr>
                     }

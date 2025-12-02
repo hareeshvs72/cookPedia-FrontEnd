@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { RecipeModel } from '../admin/Model/recipeModel';
 
 @Injectable({
   providedIn: 'root',
@@ -110,4 +111,21 @@ export class Apiservices {
           return this.http.get(`${this.serverURl}/feedback/${id}/edit?status=${status}`,this.appendToken())
 
  }
+
+//  add recipe 
+ addRecipiApi(recipe:RecipeModel){
+     return this.http.post(`${this.serverURl}/add/recipe`,recipe,this.appendToken())
+ }
+
+//  remove recipe
+deletRecipeApi(recipeId:string){
+     return this.http.delete(`${this.serverURl}/recipe/${recipeId}`,this.appendToken())
+}
+
+// update recipe
+
+ updateRecipeApi(recipeId:string,recipe:RecipeModel){
+     return this.http.put(`${this.serverURl}/recipe/${recipeId}/update`,recipe,this.appendToken())
+ }
+
 }
