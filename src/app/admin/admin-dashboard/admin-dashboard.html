@@ -30,7 +30,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <button type="button" class="dropdown-item">
+                                <button (click)="logOut()" type="button" class="dropdown-item">
                                     LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 </button>
                             </li>
@@ -49,7 +49,7 @@
                         <i class="fa-solid fa-user fs-1"></i>
                         <div class="mx-5">
                             <h4>User</h4>
-                            <h3>100</h3>
+                            <h3>{{userCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <i class="fa-solid fa-bowl-food fs-1"></i>
                         <div class="mx-5">
                             <h4>Recipe</h4>
-                            <h3>30</h3>
+                            <h3>{{recipeCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <i class="fa-solid fa-download fs-1"></i>
                         <div class="mx-5">
                             <h4>Downloads</h4>
-                            <h3>10</h3>
+                            <h3>{{downloadCount}}</h3>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         <i class="fa-solid fa-message fs-1"></i>
                         <div class="mx-2">
                             <h4>Notificationt</h4>
-                            <h5>you have <a routerLink="/admin/feedback-list ">10</a>new requests</h5>
+                            <h5>you have <a routerLink="/admin/feedback-list ">{{notification}}</a>new requests</h5>
                         </div>
                     </div>
                 </div>
