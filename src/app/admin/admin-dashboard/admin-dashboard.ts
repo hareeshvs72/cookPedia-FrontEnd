@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Apiservices } from '../../services/apiservices';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: false,
@@ -17,7 +18,7 @@ userCount:number = 0
 recipeCount:number = 0
 downloadCount:number = 0
 notification:number = 0
-
+router = inject(Router)
 constructor(){
   this.chartOptions = {
     chart:{
@@ -79,7 +80,7 @@ getRecipe(){
   })
 }
 download(){
-  this.api.getUserDownloadrecipi().subscribe((res:any)=>{
+  this.api.getAdminAllDownloadApi().subscribe((res:any)=>{
   this.downloadCount = res.map((item:any)=>item.count).reduce((acu:any,curr:any)=>acu+curr)
   console.log(this.downloadCount);
   
@@ -87,14 +88,18 @@ download(){
 }
 
 getNotification(){
-  this.api.getAllFeedbackApi().subscribe((res:any)=>{
-  this.notification = res.filter((item:any)=>item.status == "pending").reduce((acu:any,curr:any)=>acu+curr)
+  this.api.getAdminAllFeedbacksApi().subscribe((res:any)=>{
+    // console.log(res);
+    
+  this.notification = res.filter((item:any)=>item.status == "pending").length
+  // console.log(this.notification);
+  
   })
 }
 
 logOut(){
-  // sessionStorage.clear()
-  // this.route.navigateByUrl('/login')
+  sessionStorage.clear()
+  this.router.navigateByUrl('/login')
 }
 
 }

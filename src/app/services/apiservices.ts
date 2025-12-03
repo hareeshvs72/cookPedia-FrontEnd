@@ -118,9 +118,15 @@ export class Apiservices {
  }
 
 //  remove recipe
-deletRecipeApi(recipeId:string){
+// deletRecipeApi(recipeId:string){
+//      return this.http.delete(`${this.serverURl}/recipe/${recipeId}`,this.appendToken())
+// }
+
+deleteRecipeAdminApi(recipeId:string){
      return this.http.delete(`${this.serverURl}/recipe/${recipeId}`,this.appendToken())
-}
+ }
+
+ 
 
 // update recipe
 
