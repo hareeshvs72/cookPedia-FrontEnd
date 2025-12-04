@@ -20,7 +20,9 @@ downloadCount:number = 0
 notification:number = 0
 router = inject(Router)
 constructor(){
-  this.chartOptions = {
+  if(localStorage.getItem("chart")){
+    const chartData  = JSON.parse(localStorage.getItem("chart")||"")
+    this.chartOptions = {
     chart:{
       type:'bar'
     },
@@ -46,16 +48,12 @@ constructor(){
         name:'Cuisine',
         colorByPoint:true,
         type:'bar',
-        data:[
-          {
-            name:'Italian',
-            y:30
-          }
-        ]
+        data:chartData
 
 
       }
     ]
+  }
   }
 }
 

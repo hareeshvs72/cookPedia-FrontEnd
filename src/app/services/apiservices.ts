@@ -7,7 +7,9 @@ import { RecipeModel } from '../admin/Model/recipeModel';
 })
 export class Apiservices {
   http = inject(HttpClient)
-  serverURl = "http://localhost:3000"
+  // serverURl = "http://localhost:3000"
+  // https://cookpedia-server-aga1.onrender.com
+  serverURl = " https://cookpedia-server-aga1.onrender.com"
    
  
   // get all recipes
@@ -133,5 +135,20 @@ deleteRecipeAdminApi(recipeId:string){
  updateRecipeApi(recipeId:string,recipe:RecipeModel){
      return this.http.put(`${this.serverURl}/recipe/${recipeId}/update`,recipe,this.appendToken())
  }
+
+
+// chart information
+
+getChartData(){
+  this.getAdminAllDownloadApi().subscribe((res:any)=>{
+    let downloadList:any = []
+    res.forEach((item:any) => {
+      downloadList.push({name:item.recipeCuisine,y:item.count})
+    });
+    console.log(downloadList);
+    localStorage.setItem("chart",JSON.stringify(downloadList))
+    
+  })
+}
 
 }

@@ -9,11 +9,13 @@ import { Register } from './register/register';
 import { SaveRecipes } from './save-recipes/save-recipes';
 import { ViewRecipe } from './view-recipe/view-recipe';
 import { Pnf } from './pnf/pnf';
+import { routeGuard } from './guards/route-guard';
+import { adminGuardGuard } from './guards/admin-guard-guard';
 export const routes: Routes = [
 
      // lazy loaded module path
      {
-          path:'admin', loadChildren:()=>import('./admin/admin-module').then(module=>module.AdminModule)
+          path:'admin', canActivate:[adminGuardGuard] ,loadChildren:()=>import('./admin/admin-module').then(module=>module.AdminModule)
      },
      // http://localhost:4200/
     {
@@ -35,7 +37,7 @@ export const routes: Routes = [
     ,
      // http://localhost:4200/profile
     {
-         path:"profile" , component:Profile ,title:"Profile"
+         path:"profile",canActivate:[routeGuard] , component:Profile ,title:"Profile"
     }
     ,
      // http://localhost:4200/recipies
@@ -50,12 +52,12 @@ export const routes: Routes = [
     ,
      // http://localhost:4200/recipe/save
     {
-         path:"recipe/save" , component:SaveRecipes ,title:"Save-Recipes"
+         path:"recipe/save",canActivate:[routeGuard] , component:SaveRecipes ,title:"Save-Recipes"
     }
     ,
      // http://localhost:4200/recipe/id/view
     {
-         path:"recipe/:id/view" , component:ViewRecipe ,title:"View"
+         path:"recipe/:id/view",canActivate:[routeGuard] , component:ViewRecipe ,title:"View"
     }
     ,
      // http://localhost:4200/ -page not found

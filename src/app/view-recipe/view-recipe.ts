@@ -62,6 +62,7 @@ getRelatedRecipie(cuisine:any){
   
 addToDownload(){
  this.api.addToDownloadrecipeAPI(this.recipe).subscribe((res:any)=>{
+  this.api.getChartData()
   this.downloadrecipe()
  })
 }
